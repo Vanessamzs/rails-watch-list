@@ -35,6 +35,8 @@ gem "simple_form"
 
 gem "sassc-rails"
 
+gem "cloudinary"
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
