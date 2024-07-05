@@ -5,7 +5,7 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
-    list.movie = movie
+    @movies = @list.movies
   end
 
   def new
@@ -21,9 +21,15 @@ class ListsController < ApplicationController
     end
   end
 
+  def destroy
+    @list = List.find(params[:id])
+    @list.destroy
+    redirect_to lists_path(@lists), notice: "list was successfully destroyed.", status: :see_other
+  end
+
   private
 
   def list_params
-    params.require(:list).permit(:name)
+    params.require(:list).permit(:name, :movie_id)
   end
 end
